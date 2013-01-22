@@ -1,0 +1,24 @@
+<?php
+/**
+ * @package    DB_to_Fixtures
+ * @author     Yukio Mizuta
+ * @copyright  Copyright (c) 2012-2013 Yukio Mizuta
+ * @license    MIT License http://www.opensource.org/licenses/mit-license
+ * @link       y-mzt.info
+ *
+ * No Assurance, No responsibility
+ */
+
+//setup autoloader
+spl_autoload_register(function($class){
+  require_once __DIR__. "/class/". getRealClassName($class) .".php";
+}, true);
+
+//the only global function
+function getRealClassName($class){
+  $class_parts = explode('\\', $class);
+  return end($class_parts);
+}
+
+//Not good practice, but ignore "undefined index" notice
+error_reporting(E_ALL ^ E_NOTICE);

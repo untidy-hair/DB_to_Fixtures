@@ -1,0 +1,31 @@
+<?php
+/**
+ * @package    DB_to_Fixtures\DB
+ * @author     Yukio Mizuta
+ * @copyright  Copyright (c) 2012-2013 Yukio Mizuta
+ * @license    MIT License http://www.opensource.org/licenses/mit-license
+ * @link       y-mzt.info
+ *
+ * No Assurance, No responsibility
+ */
+
+namespace DB_to_Fixtures\DB;
+
+class sqlite extends BaseDB{
+
+  public function getColumnNames($table_schema = null){
+    $sql = 'PRAGMA table_info("'. $this->table .'");';
+    return $this->_SQLToArray($sql, 'name');
+  }
+
+  public function getColumnTypes($table_schema = null){
+    $sql = 'PRAGMA table_info("'. $this->table .'");';
+    $res = $this->pdo->query($sql)->fetchAll();
+    $ret = array();
+    foreach($res as $v){
+      $ret[0][$v['name']] = $v['type'];
+    }
+    return $ret;
+  }
+
+}

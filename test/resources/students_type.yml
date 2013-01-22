@@ -1,0 +1,8 @@
+students_type:
+  -
+    id: "integer"
+    given_name: "character varying"
+    family_name: "character varying"
+    grade_point_average: "real"
+    created_at: "timestamp without time zone"
+    updated_at: "timestamp without time zone"
