@@ -5,7 +5,7 @@ YAML/XML Dataset Generator from your current DB for PHPUnit DB Test
 
 You need fixtures to execute DB related tests.  
 Sometimes FW might support you, but in other cases you have to create them manually.  
-DB_to_Fixtures generates yaml fixture files from your current database.
+DB_to_Fixtures generates YAML/XML Dataset for PHPUnit fixtures from your current database.
 
 Output file types
 ----------------------------------------------------------------------
@@ -36,8 +36,11 @@ How to use
   ```$ php main.php --table=your_table_name```
 3. Now you get "your_table_name.yml" under "outfiles" directory.  
    (You need an appropriate privilege, of course.)
-4. Enjoy your DB test with PHPUnit  
+4. Enjoy your DB test with PHPUnit by using the generated YML Dataset
   See http://www.phpunit.de/manual/3.7/en/database.html
+
+You can see command line tips by typing  
+  ```$ php main.php --help```
 
 How to test this DB_to_Fixtures
 ----------------------------------------------------------------------
